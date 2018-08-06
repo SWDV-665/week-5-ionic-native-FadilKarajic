@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Grocery</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items; let i=index">
+      <ion-item>
+        <h2>{{item.name}}</h2>
+        <h2>{{item.quantity}}</h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="editItem(item,i)" icon-start>
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+
+        <button ion-button color="secondary" (click)="removeItem(item,i)" icon-start>
+          <ion-icon name="md-trash"></ion-icon>
+            Remove
+          </button>
+
+          <button ion-button color="dark" (click)="shareItem(item,i)" icon-start>
+            <ion-icon name="md-share"></ion-icon>
+            Share
+          </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button (click)="addItem(item)" ion-fab mini>
+      <ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
